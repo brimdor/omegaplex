@@ -59,7 +59,10 @@ RUN \
 	/etc/default/plexmediaserver \
 	/tmp/* \
 	/var/lib/apt/lists/* \
-	/var/tmp/*
+	/var/tmp/* \
+ echo deb https://downloads.plex.tv/repo/deb public main | tee /etc/apt/sources.list.d/plexmediaserver.list \
+ curl https://downloads.plex.tv/plex-keys/PlexSign.key | apt-key add - \
+ apt update
 
 # add local files
 COPY root/ /
